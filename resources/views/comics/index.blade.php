@@ -2,6 +2,7 @@
 
 @section('PageContent')
 <h1 class="mb-3">Comics store</h1>
+<a href="{{route("comics.create")}}"><button type="button" class="btn btn-info mb-3">aggiungi</button></a>
     <table class="table">
         <thead>
         <tr>
