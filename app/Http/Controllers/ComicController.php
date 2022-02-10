@@ -85,9 +85,22 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Comic $comic)
     {
-        //
+        //prendo i dati dal form con request
+        $data = $request->all();
+
+        //aggiorno la risorsa con i nuovi dati
+        $comic->title = $data["title"];
+        $comic->description = $data["description"];
+        $comic->price = $data["price"];
+        $comic->sale_date = $data["sale_date"];
+        $comic->series = $data["series"];
+        $comic->type = $data["type"];
+        $comic->save();
+
+        //restituisco la pagina show della risorsa modificata
+        return redirect()->route("comics.show", $comic->id);
     }
 
     /**
