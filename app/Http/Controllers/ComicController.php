@@ -72,9 +72,10 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Comic $comic)
     {
-        //
+        //restituisco il form per modificare questo elemento
+        return view("comics.edit", compact("comic"));
     }
 
     /**
