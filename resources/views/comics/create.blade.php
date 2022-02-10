@@ -14,6 +14,10 @@
         <input type="text" class="form-control" id="series" name="series" placeholder="inserisci la serie">
     </div>
     <div class="form-group">
+        <label for="sale_date">Data d'uscita</label>
+        <input type="date" class="form-control" id="sale_date" name="sale_date" placeholder="inserisci la data di uscita">
+    </div>
+    <div class="form-group">
         <label for="type">Tipo</label>
         <select class="form-control form-control-md" id="type" name="type">
             <option value="comic-book">comic book</option>
@@ -21,8 +25,12 @@
         </select>
     </div>
     <div class="form-group">
+        <label for="thumb">Immagine</label>
+        <input type="text" class="form-control" id="thumb" name="thumb" placeholder="inserisci l'url dell'immagine">
+    </div>
+    <div class="form-group">
         <label for="price">Prezzo</label>
-        <input type="number" step=".01" class="form-control" id="price" class="price" placeholder="inserisci il prezzo">
+        <input type="number" step=".01" class="form-control" id="price" name="price" placeholder="inserisci il prezzo">
     </div>
     <div class="form-group">
         <label for="description">Descrizione</label>
