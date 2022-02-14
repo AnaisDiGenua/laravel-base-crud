@@ -25,16 +25,17 @@
             <td>{{$comic->type}}</td>
             <td>{{$comic->price}}</td>
             <td>
+                {{-- bottone visualizza --}}
                 <a href="{{route("comics.show", $comic->id)}}"><button type="button" class="btn btn-primary">visualizza</button></a>
-            </td>
-            <td>
-                <a href="{{route("comics.edit", $comic->id)}}"><button type="button" class="btn btn-warning">modifica</button></a>
-            </td>
-            <td>
+                {{-- bottone modifica --}}
+                <a href="{{route("comics.edit", $comic->id)}}"><button type="button" class="btn btn-warning my-2">modifica</button></a>
+                {{-- bottone elimina --}}
                 <form action="{{route("comics.destroy", $comic->id)}}" method="POST" >
                 @csrf
                 @method("DELETE")
-                <button type="submit" class="btn btn-danger">elimina</button>
+                <div>
+                    <button type="submit" class="btn btn-danger">elimina</button>
+                </div>
                 </form>
             </td>
         </tr>

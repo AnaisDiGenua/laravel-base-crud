@@ -11,6 +11,7 @@
     <div class="container mt-5">
         @yield('PageContent')
     </div>
-    
+
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
