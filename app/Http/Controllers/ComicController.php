@@ -108,14 +108,30 @@ class ComicController extends Controller
         //prendo i dati dal form con request
         $data = $request->all();
 
+        //validazione
+        $request->validate([
+            "title" => "required|string|max:50|unique:comics,title,{$comic->id}",
+            "description" => "required|string",
+            "price" => "required|numeric|min:0.1|max:500",
+            "series" => "required|string|max:50",
+            "type" => [
+                "required",
+                Rule::in(["comic book", "graphic novel"])
+            ],
+            "sale_date" => "nullable|date",
+            "thumb" => "nullable|url"
+        ]);
+
         //aggiorno la risorsa con i nuovi dati
-        $comic->title = $data["title"];
-        $comic->description = $data["description"];
-        $comic->price = $data["price"];
-        $comic->sale_date = $data["sale_date"];
-        $comic->series = $data["series"];
-        $comic->type = $data["type"];
-        $comic->save();
+        $comic->update($data);
+
+        // $comic->title = $data["title"];
+        // $comic->description = $data["description"];
+        // $comic->price = $data["price"];
+        // $comic->sale_date = $data["sale_date"];
+        // $comic->series = $data["series"];
+        // $comic->type = $data["type"];
+        // $comic->save();
 
         //restituisco la pagina show della risorsa modificata
         return redirect()->route("comics.show", $comic->id);
